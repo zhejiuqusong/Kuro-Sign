@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # _*_ coding:utf-8 _*_
+# By: https://github.com/whyour/qinglong/blob/develop/sample/notify.py
 import base64
 import hashlib
 import hmac
