@@ -2,7 +2,7 @@
  * @Author: Night-stars-1 nujj1042633805@gmail.com
  * @Date: 2024-10-26 19:27:59
  * @LastEditors: Night-stars-1 nujj1042633805@gmail.com
- * @LastEditTime: 2024-10-27 17:25:53
+ * @LastEditTime: 2024-10-27 17:29:34
 -->
 # Kuro-Sign
 自动化完成库街区论坛与游戏签到任务
@@ -30,7 +30,7 @@
 > [!TIP]
 > 配置文件和环境变量你只需要选择一个
 ### 配置文件
-- 将`token.json.example`重命名为`token.json`并填写里面的信息
+- 将`config.json.example`重命名为`config.json`并填写里面的信息
 ### 环境变量
 - 设置环境变量`Kuro-Token`的值为库街区的Token
 

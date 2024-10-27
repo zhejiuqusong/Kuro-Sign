@@ -23,7 +23,7 @@ def read_config():
     if os.path.exists("config.json"):
         with open("config.json", "r", encoding="utf-8") as f:
             return json.load(f)
-    raise FileNotFoundError("请将token.json.example重命名为token.json并填写信息")
+    raise FileNotFoundError("请将config.json.example重命名为config.json并填写信息")
 
 if not (token := os.environ.get("Kuro-Token")):
     token = read_config()["token"]
