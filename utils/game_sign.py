@@ -1,3 +1,9 @@
+"""
+Author: Night-stars-1 nujj1042633805@gmail.com
+Date: 2024-10-27 15:20:58
+LastEditors: Night-stars-1 nujj1042633805@gmail.com
+LastEditTime: 2024-10-27 17:30:35
+"""
 from typing import List, TypedDict
 
 import requests
@@ -80,8 +86,10 @@ def get_role_list(game_id):
 
     response = requests.post(url, data=data, headers=headers)
     result: ResponseModel = response.json()
-    role_list: List[RoleModel] = result["data"]
-    return [BaseSign(game_id=role["gameId"], server_id=role["serverId"], role_id=role["roleId"], user_id=role["userId"], game_name=role["serverName"]) for role in role_list]
+    if result["code"] == 200:
+        role_list: List[RoleModel] = result["data"]
+        return [BaseSign(game_id=role["gameId"], server_id=role["serverId"], role_id=role["roleId"], user_id=role["userId"], game_name=role["serverName"]) for role in role_list]
+    return result["msg"]
 
 if __name__ == "__main__":
     sign_list = get_role_list()

@@ -26,6 +26,8 @@ GAME_LIST = [2, 3]
 if __name__ == "__main__":
     for game_id in GAME_LIST:
         sign_list = get_role_list(game_id)
+        if isinstance(sign_list, str):
+            raise ValueError(sign_list)
         for sign_obj in sign_list:
             sign_status = sign_obj.sign()
             print(f"游戏{sign_obj.game_name}签到结果：{sign_status}")
