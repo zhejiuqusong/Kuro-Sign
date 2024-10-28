@@ -2,7 +2,7 @@
 Author: Night-stars-1 nujj1042633805@gmail.com
 Date: 2024-10-27 15:20:58
 LastEditors: Night-stars-1 nujj1042633805@gmail.com
-LastEditTime: 2024-10-27 17:30:35
+LastEditTime: 2024-10-29 01:15:49
 """
 from typing import List, TypedDict
 
@@ -26,7 +26,7 @@ class BaseSign:
         self.user_id = user_id
         self.game_name = game_name
 
-    def get_sign_prize(self):
+    def get_sign_prize(self) -> str:
         """
         获取签到奖品
         """
@@ -44,9 +44,9 @@ class BaseSign:
         data = result["data"]
         code = result["code"]
         if code != 200:
-            return f"请求失败，响应代码: {code}, 消息: {result['msg']}"
+            return result['msg']
         if isinstance(data, list) and len(data) > 0:
-            first_goods_name = data[0]["goodsName"]
+            first_goods_name: str = data[0]["goodsName"]
             return first_goods_name
 
         return "数据格式不正确或数据为空"
@@ -65,13 +65,13 @@ class BaseSign:
         result: ResponseModel = response.json()
         code = result["code"]
         if code != 200:
-            return f"签到失败，响应代码: {code}, 消息: {result.get('msg')}"
+            return result["msg"]
         try:
             goods_names = self.get_sign_prize()
             return goods_names
         except ValueError as e:
             print(f"获取奖品失败: {e}")
-            return None
+            return "获取奖品失败"
 
     def __str__(self):
         return f"Sign(game_id={self.game_id}, server_id={self.server_id}, role_id={self.role_id}, user_id={self.user_id})"

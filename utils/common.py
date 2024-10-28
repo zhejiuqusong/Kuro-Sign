@@ -2,7 +2,7 @@
 Author: Night-stars-1 nujj1042633805@gmail.com
 Date: 2024-10-27 15:38:10
 LastEditors: Night-stars-1 nujj1042633805@gmail.com
-LastEditTime: 2024-10-27 17:37:53
+LastEditTime: 2024-10-28 23:20:34
 """
 from datetime import datetime
 import json
@@ -38,7 +38,7 @@ headers = {
     "User-Agent": "okhttp/3.11.0",
     "Content-Type": "application/x-www-form-urlencoded",
     "devCode": random_string(40),
-    "source": "android",
+    "source": "h5",
     "version": "2.2.5",
     "versionCode": "2250",
     "token": token,
