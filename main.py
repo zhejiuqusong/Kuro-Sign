@@ -2,7 +2,7 @@
 Author: Night-stars-1 nujj1042633805@gmail.com
 Date: 2024-10-26 19:27:59
 LastEditors: Night-stars-1 nujj1042633805@gmail.com
-LastEditTime: 2024-10-29 01:18:16
+LastEditTime: 2024-10-29 19:47:50
 """
 
 """
@@ -54,7 +54,7 @@ if __name__ == "__main__":
                 log(f"阅读帖子：{title}")
             elif task["remark"] == "点赞5次":
                 like_status = like(forum_list[i]["postId"], forum_list[i]["userId"])
-                log(f"点赞帖子：{forum_list[i]["postTitle"]} - {like_status}")
+                log(f"点赞帖子：{forum_list[i]['postTitle']} - {like_status}")
             elif task["remark"] == "分享1次帖子":
                 share_status = share()
                 log(f"分享帖子: {share_status}")
