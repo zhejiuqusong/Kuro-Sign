@@ -2,7 +2,7 @@
 Author: Night-stars-1 nujj1042633805@gmail.com
 Date: 2024-10-26 19:27:59
 LastEditors: Night-stars-1 nujj1042633805@gmail.com
-LastEditTime: 2024-10-29 19:47:50
+LastEditTime: 2024-11-24 23:48:45
 """
 
 """
@@ -48,7 +48,7 @@ if __name__ == "__main__":
         for i in range(time):
             if task["remark"] == "用户签到":
                 sign_status = bbs_sign(random.choice(GAME_LIST))
-                log(f"用户签到: {sign_status}")
+                log(f"用户签到：{sign_status}")
             elif task["remark"] == "浏览3篇帖子":
                 title = get_forum_detail(forum_list[i]["postId"])
                 log(f"阅读帖子：{title}")
@@ -57,7 +57,7 @@ if __name__ == "__main__":
                 log(f"点赞帖子：{forum_list[i]['postTitle']} - {like_status}")
             elif task["remark"] == "分享1次帖子":
                 share_status = share()
-                log(f"分享帖子: {share_status}")
+                log(f"分享帖子：{share_status}")
         if time == 0:
-            log(f"{task['remark']}: 已完成")
+            log(f"{task['remark']}：已完成")
     send("库街区", "\n".join(MESSAGE))
