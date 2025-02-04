@@ -37,7 +37,7 @@ def log(str):
 if __name__ == "__main__":
     token_list = get_token_list()
     for token in token_list:
-        set_token(token)
+        set_token()
         for game_id in GAME_LIST:
             sign_list = get_role_list(game_id)
             if isinstance(sign_list, str):
@@ -51,7 +51,7 @@ if __name__ == "__main__":
             time = task["needActionTimes"] - task["completeTimes"]
             for i in range(time):
                 if task["remark"] == "用户签到":
-                    sign_status = bbs_sign(random.choice(GAME_LIST))
+                    sign_status = bbs_sign(2)
                     log(f"用户签到：{sign_status}")
                 elif task["remark"] == "浏览3篇帖子":
                     title = get_forum_detail(forum_list[i]["postId"])
