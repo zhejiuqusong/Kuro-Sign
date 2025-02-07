@@ -37,7 +37,7 @@ def log(str):
 if __name__ == "__main__":
     token_list = get_token_list()
     for token in token_list:
-        set_token()
+        set_token(token)
         for game_id in GAME_LIST:
             sign_list = get_role_list(game_id)
             if isinstance(sign_list, str):
