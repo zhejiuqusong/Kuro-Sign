@@ -34,7 +34,7 @@
 ### 配置文件
 - 将`config.json.example`重命名为`config.json`并填写里面的信息
 ### 环境变量
-- 设置环境变量`Kuro-Token`的值为库街区的Token
+- 设置环境变量`Kuro_Token`的值为库街区的Token
 
 ## 关于Token
 - 如果你不知道怎么抓包获取Token，可以使用[GetKjqToken](https://github.com/Night-stars-1/GetKjqToken)获取
