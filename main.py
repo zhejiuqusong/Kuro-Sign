@@ -11,8 +11,6 @@ name: 库街区签到任务
 定时规则
 cron: 1 9 * * *
 """
-import random
-
 from notify import send
 from utils.bbs_sign import (
     bbs_sign,
@@ -22,10 +20,10 @@ from utils.bbs_sign import (
     like,
     share,
 )
-from utils.common import get_token_list, set_token
+from utils.common import set_token
+from utils.config import Config
 from utils.game_sign import get_role_list
 
-GAME_LIST = [2, 3]
 MESSAGE = []
 
 
@@ -35,10 +33,10 @@ def log(str):
 
 
 if __name__ == "__main__":
-    token_list = get_token_list()
-    for token in token_list:
-        set_token(token)
-        for game_id in GAME_LIST:
+    config = Config()
+    for token in config.token_list:
+        set_token(token, config.get("Source"))
+        for game_id in config.sign_game:
             sign_list = get_role_list(game_id)
             if isinstance(sign_list, str):
                 raise ValueError(sign_list)
@@ -50,16 +48,16 @@ if __name__ == "__main__":
         for task in task_list:
             time = task["needActionTimes"] - task["completeTimes"]
             for i in range(time):
-                if task["remark"] == "用户签到":
+                if task["remark"] == "用户签到" and config.get("BbsSign", True):
                     sign_status = bbs_sign(2)
                     log(f"用户签到：{sign_status}")
-                elif task["remark"] == "浏览3篇帖子":
+                elif task["remark"] == "浏览3篇帖子" and config.get("LookPost", True):
                     title = get_forum_detail(forum_list[i]["postId"])
                     log(f"阅读帖子：{title}")
-                elif task["remark"] == "点赞5次":
+                elif task["remark"] == "点赞5次" and config.get("LikePost", True):
                     like_status = like(forum_list[i]["postId"], forum_list[i]["userId"])
                     log(f"点赞帖子：{forum_list[i]['postTitle']} - {like_status}")
-                elif task["remark"] == "分享1次帖子":
+                elif task["remark"] == "分享1次帖子" and config.get("SharePost", True):
                     share_status = share()
                     log(f"分享帖子：{share_status}")
             if time == 0:

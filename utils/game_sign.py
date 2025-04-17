@@ -83,7 +83,6 @@ def get_role_list(game_id):
     url = "https://api.kurobbs.com/gamer/role/list"
 
     data = {"gameId": game_id}
-
     response = requests.post(url, data=data, headers=headers)
     result: ResponseModel = response.json()
     if result["code"] == 200:
