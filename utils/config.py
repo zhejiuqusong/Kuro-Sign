@@ -46,5 +46,5 @@ class Config:
         """
         获取签到游戏列表
         """
-        game = self.get("SignGame")
+        game = self.get("SignGame", "2|3")
         return game.split("|")
