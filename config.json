@@ -1,1 +1,9 @@
-
+{
+    "Token": "eyJhbGciOiJIUzI1NiJ9.eyJjcmVhdGVkIjoxNzU0MzA2Mzk1MTE1LCJ1c2VySWQiOjI5MTkxNDE5fQ.CnEnPfCVI56ZO-N1jqiV-LZGVXhq0nQ2Za6-PM54DrU",
+    "BbsSign": true,
+    "LookPost": true,
+    "LikePost": true,
+    "SharePost": true,
+    "SignGame": "2|3",
+    "Source": "android"
+}
